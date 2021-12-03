@@ -15,7 +15,7 @@ timestamp=$(date +%s)
 
 echo $timestamp
 
-tagName = "v.${timestamp}"
+tagName="v.${timestamp}"
 
 git tag -a $tagName -m '更换图片'
 
