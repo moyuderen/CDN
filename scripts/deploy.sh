@@ -15,6 +15,8 @@ timestamp=$(date +%s)
 
 echo $timestamp
 
-git tag -a $timeStamp -m '更换图片'
+tagName = "v.${timestamp}"
 
-git push origin $timeStamp
+git tag -a $tagName -m '更换图片'
+
+git push origin $tagName
