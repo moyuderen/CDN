@@ -1,0 +1,17 @@
+{
+  "name": "CDN",
+  "version": "1.0.0",
+  "description": "jsdelivr github cdn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "node scripts/deploy.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@moyuderen:moyuderen/CDN.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
