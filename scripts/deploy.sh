@@ -8,10 +8,12 @@ git commit -m 'feat: 更换图片'
 
 git push
 
-current=`date "+%Y-%m-%d %H:%M:%S"`  
-timeStamp=`date -d "$current" +%s`
+# current=`date "+%Y-%m-%d %H:%M:%S"`  
+# timeStamp=`date -d "$current" +%s`
 
-echo $timeStamp
+timestamp=$(date +%s)
+
+echo $timestamp
 
 git tag -a $timeStamp -m '更换图片'
 
