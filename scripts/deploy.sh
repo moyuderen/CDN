@@ -2,18 +2,17 @@
 
 echo "开始部署。。。"
 
+# 提交代码
 git add .
 
 git commit -m 'feat: 更换图片'
 
 git push
 
-# current=`date "+%Y-%m-%d %H:%M:%S"`  
-# timeStamp=`date -d "$current" +%s`
-
+# 生成tag
 timestamp=$(date +%s)
 
-echo $timestamp
+# echo $timestamp
 
 tagName="v.${timestamp}"
 
