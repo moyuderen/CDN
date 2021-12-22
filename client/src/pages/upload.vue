@@ -41,16 +41,33 @@
 
         <div class="fileTree">
             <div>CDN文件tree</div> 
-            <el-tree :data="state.fileTree" :props="{
-                children: 'children',
-                label: 'label',
-            }"/>
+            <el-tree 
+                show-checkbox
+                :data="state.fileTree" 
+                node-key="value"
+                :props="{
+                    children: 'children',
+                    label: 'label',
+                }">
+                <template #default="{ node, data }">
+                    <span class="custom-tree-node">
+                        <span>
+                            <el-icon v-if='data.isLast'><document /></el-icon>
+                            <el-icon v-else><folder-opened /></el-icon>
+                            {{ node.label }}
+                        </span>
+                        <span>
+                            <!-- <a @click="remove(node, data)"> Delete </a> -->
+                        </span>
+                    </span>
+                </template>
+            </el-tree>
         </div>
     </div>
 </template>
 
 <script setup>
-import { UploadFilled } from '@element-plus/icons'
+import { UploadFilled, FolderOpened, Document } from '@element-plus/icons'
 import { ElMessage } from 'element-plus'
 import { ref, reactive, unref, toRef, watch } from 'vue'
 import axios from 'axios'
@@ -71,7 +88,11 @@ const getBuckets = async function() {
     })
 
     state.dirTree = data.data.dirTree || []
-    state.fileTree = data.data.fileTree || []
+    state.fileTree = [{
+        label: 'CDN',
+        value: 'CDN',
+        children: data.data.fileTree 
+    }]
 }
 
 getBuckets()
