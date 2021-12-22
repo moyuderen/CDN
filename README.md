@@ -1,2 +1,0 @@
-# CDN
-jsdelivr github cdn
